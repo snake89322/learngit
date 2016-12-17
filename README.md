@@ -65,3 +65,4 @@ git commit -m "remove Q1.md"
 ```
 
 - [x] A1: git add 可以看作是修改操作，删除的文件也可用add进行确认
+>目录是否clear使用git status 提示 working tree clean
