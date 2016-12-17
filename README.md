@@ -89,7 +89,35 @@ git reset --hard commit_id
 ### 3 工作区和暂存区
 
 **工作区**：工作目录，使用IDE修改或者本地资源管理器
+
 **暂存区**：stage，版本库commit之前的存储区，用于存储修改的区域
+
 **分支**：commit的目标区，git默认commit后会提交至master分支
 
 ![pic](http://www.liaoxuefeng.com/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0)
+
+### 4 SSH
+```sh
+// 生成SSH
+ssh-keygen -t rsa -C "youremail@example.com"
+
+// 生成目录找到id_rsa.pub，复制里面的内容
+
+// 去网页Settings > Deploy keys > Add deploy key 粘贴SSH信息
+
+// 即可在本地提交 git push 命令
+```
+不同电脑SSH重复创建即可
+
+```sh
+// 网页在repositories中创建新的learngit
+
+// 添加远程链接
+git remote add origin git@github.com:snake89322/learngit.git
+
+// 首次push
+git push -u origin master
+
+// 之后push
+git push origin master
+```
