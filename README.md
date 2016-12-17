@@ -66,3 +66,5 @@ git commit -m "remove Q1.md"
 
 - [x] A1: git add 可以看作是修改操作，删除的文件也可用add进行确认
 >目录是否clear使用git status 提示 working tree clean
+>要随时掌握工作区的状态，使用git status命令。
+>如果git status告诉你有文件被修改过，用git diff可以查看修改内容。
