@@ -29,7 +29,7 @@ Untracked files:
         Q1.md
 
 no changes added to commit */
-// 提交失败
+// commit失败
 ```
 
 ```sh
@@ -40,6 +40,28 @@ git commit -m "Q1.md not add"
 ```
 
 - [x] A1: 命令行中需要有git add操作之后才能够进行commit，否则不会进行commit
->全部提交请 git add -a
+>全部提交请 git add -A
 
 * Q2: 文件的删除是否能用git add操作？
+```sh
+// 删除Q1.md
+
+git commit -m "remove Q1.md"
+/* On branch master
+On branch master
+Changes not staged for commit:
+        deleted:    Q1.md
+
+no changes added to commit */
+// commit失败
+```
+
+```sh
+git add Q1.md
+git commit -m "remove Q1.md"
+/* [master e71df2e] remove Q1.md
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 Q1.md */
+```
+
+- [x] A1: git add 可以看作是修改操作，删除的文件也可用add进行确认
