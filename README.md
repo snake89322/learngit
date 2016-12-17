@@ -66,7 +66,6 @@ git commit -m "remove Q1.md"
 - [x] A1: git add 可以看作是修改操作，删除的文件也可用add进行确认
 >目录是否clear使用git status 提示 working tree clean
 >要随时掌握工作区的状态，使用git status命令。
->如果git status告诉你有文件被修改过，用git diff可以查看修改内容。
 
 ### 2 命运石之门
 
@@ -85,4 +84,12 @@ git reset --hard commit_id
 >HEAD指向的版本就是当前版本，因此，Git允许我们在版本的历史之间穿梭，使用命令git reset --hard commit_id。
 >穿梭前，用git log可以查看提交历史，以便确定要回退到哪个版本。
 >要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
+>如果git status告诉你有文件被修改过，用git diff可以查看修改内容，配合reflog，命令是 git diff HEAD@{3} -- README.md
 
+### 3 工作区和暂存区
+
+**工作区**：工作目录，使用IDE修改或者本地资源管理器
+**暂存区**：stage，版本库commit之前的存储区，用于存储修改的区域
+**分支**：commit的目标区，git默认commit后会提交至master分支
+
+![pic](http://www.liaoxuefeng.com/files/attachments/001384907702917346729e9afbf4127b6dfbae9207af016000/0)
