@@ -145,3 +145,9 @@ git branch dev
 git checkout dev
 ```
 
+```sh
+// 合并dev分支
+git checkout master // 先切换至主分支
+git merge dev // 合并
+```
+
