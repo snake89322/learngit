@@ -57,6 +57,7 @@ no changes added to commit */
 
 ```sh
 git add Q1.md
+
 git commit -m "remove Q1.md"
 /* [master e71df2e] remove Q1.md
  1 file changed, 1 deletion(-)
@@ -72,10 +73,13 @@ git commit -m "remove Q1.md"
 ```sh
 // 查看未关机状态下的log
 git log --pretty=oneline
+
 // 查看未来的HEAD
 git reflog
+
 // 穿梭
 git reset --hard commit_id
+
 /*
 首先，Git必须知道当前版本是哪个版本，在Git中，用HEAD表示当前版本，也就是最新的提交3628164...882e1e0（注意我的提交ID和你的肯定不一样），上一个版本就是HEAD^，上上一个版本就是HEAD^^，当然往上100个版本写100个^比较容易数不过来，所以写成HEAD~100。
 */
@@ -121,3 +125,23 @@ git push -u origin master
 // 之后push
 git push origin master
 ```
+
+```sh
+// 从远程库clone
+git clone git@github.com:michaelliao/gitskills.git // SSH地址 推荐 速度快
+
+git clone https://github.com/michaelliao/gitskills.git // https地址 速度慢 每次push都要输入口令
+```
+### 5 平行宇宙
+
+![pic](http://www.liaoxuefeng.com/files/attachments/001384908633976bb65b57548e64bf9be7253aebebd49af000/0)
+
+```sh
+// 创建dev分支
+git checkout -b dev
+
+//等同于
+git branch dev
+git checkout dev
+```
+
