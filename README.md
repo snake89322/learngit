@@ -110,10 +110,11 @@ git push origin -f
 
 * Q3: 删除历史的commit，并且提交远程库？
 ```sh
-git rebase -i "commit id"^
+git rebase -i "commit id"
 git push origin -f
 ```
 - [x] A1: 有conflict得解决
+- [x] A1: 进入后删除对应的pick即可，然后:wq保存
 
 * Q3: 修改历史的commit？
 >这种情况的解决方法类似于Q2情况，只需要在第二条打开编辑框之后，将你想要修改的提交所在行的pick替换成edit然后保存退出，这个时候rebase会停在你要修改的提交，然后做你需要的修改，修改完毕之后，执行命令。
