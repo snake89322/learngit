@@ -90,6 +90,42 @@ git reset --hard commit_id
 >要重返未来，用git reflog查看命令历史，以便确定要回到未来的哪个版本。
 >如果git status告诉你有文件被修改过，用git diff可以查看修改内容，配合reflog，命令是 git diff HEAD@{3} -- README.md
 
+
+* Q1: 回滚指定版本，保留记录，并且提交远程库？
+```sh
+git revert HEAD@{*}
+git push origin
+```
+- [x] A1: 如果是前一次版本可用git revert HEAD
+- [x] A2: 如果是非前一次版本的之前版本，需要解决conflict后再add&commit
+
+>revert是放弃指定提交的修改，但是会生成一次新的提交，需要填写提交注释，以前的历史记录都在，而reset是指将HEAD指针指到指定提交，历史记录中不会出现放弃的提交记录。
+
+* Q2: 回滚指定版本，不保留记录，并且提交远程库？
+```sh
+git reset --hard HEAD@{*}
+git push origin -f
+```
+- [x] A1: 使用hard要慎重，后悔药git reflog还能玩
+
+* Q3: 删除历史的commit，并且提交远程库？
+```sh
+git rebase -i "commit id"^
+git push origin -f
+```
+- [x] A1: 有conflict得解决
+
+* Q3: 修改历史的commit？
+>这种情况的解决方法类似于Q2情况，只需要在第二条打开编辑框之后，将你想要修改的提交所在行的pick替换成edit然后保存退出，这个时候rebase会停在你要修改的提交，然后做你需要的修改，修改完毕之后，执行命令。
+```sh
+git add .
+git commit --amend
+git rebase --continue
+```
+- [x] A1: 如果你在之前的编辑框修改了n行，也就是说要对n次提交做修改，则需要重复执行以上步骤n次
+- [x] A2: 在执行rebase命令对指定提交修改或删除之后，该次提交之后的所有提交的"commit id"都会改变
+
+
 ### 3 工作区和暂存区
 
 **工作区**：工作目录，使用IDE修改或者本地资源管理器
@@ -149,5 +185,10 @@ git checkout dev
 // 合并dev分支
 git checkout master // 先切换至主分支
 git merge dev // 合并
+```
+
+```sh
+// 删除dev分支
+git branch -d dev
 ```
 
