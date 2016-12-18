@@ -185,7 +185,10 @@ git checkout dev
 ```sh
 // 合并dev分支
 git checkout master // 先切换至主分支
-git merge dev // 合并
+
+git merge dev // 合并Fast forward模式，这种模式下，删除分支后，会丢掉分支信息
+
+git merge --no-ff -m "merge with no-ff" dev // --no-ff参数，表示禁用Fast forward
 ```
 
 ```sh
