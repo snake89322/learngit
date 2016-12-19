@@ -163,12 +163,6 @@ git push -u origin master
 git push origin master
 ```
 
-```sh
-// 从远程库clone
-git clone git@github.com:michaelliao/gitskills.git // SSH地址 推荐 速度快
-
-git clone https://github.com/michaelliao/gitskills.git // https地址 速度慢 每次push都要输入口令
-```
 ### 5 平行宇宙
 
 ![pic](http://www.liaoxuefeng.com/files/attachments/001384908633976bb65b57548e64bf9be7253aebebd49af000/0)
@@ -194,5 +188,23 @@ git merge --no-ff -m "merge with no-ff" dev // --no-ff参数，表示禁用Fast 
 ```sh
 // 删除dev分支
 git branch -d dev
+```
+
+### 6 Clone & Fetch
+
+```sh
+// 从远程库clone
+git clone git@github.com:michaelliao/gitskills.git // SSH地址 推荐 速度快
+
+git clone https://github.com/michaelliao/gitskills.git // https地址 速度慢 每次push都要输入口令
+```
+
+```sh
+// 从远程库更新分支
+git branch -a
+
+git checkout -b dev origin/dev // 本地从远程库创建分支
+
+git fetch origin dev // 从远程库更新分支
 ```
 
